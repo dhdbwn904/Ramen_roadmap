@@ -5,17 +5,21 @@
 body {
   margin: 0;
   background-color: rgb(255, 212, 132);
+  background-image: url("static/img/wood_pattern.jpg");
+  background-size: cover;
 }
 
+
 nav{
-    background-color: rgb(255, 44, 44);
+    background-color: rgb(243, 31, 31);
     position: fixed;
     z-index: 1;
     width: 100%;
+    height: 9vh;
+    line-height: 9vh;
 }
 
 nav li a{
-    font-size: 18px;
     display: block;
     color: #000;
     padding: 0 10px;
@@ -23,21 +27,17 @@ nav li a{
 }
 
 nav ul li{
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
     display: inline-block;
-    margin: 0 15px;
-    padding: 0;
 }
 
 nav ul{
     text-align: center;
     margin: 0 auto;
-    padding: 30px;
 }
 
 nav li a.active {
-    background-color: transparent;
     color: white;
     font-style: bold;
 }
@@ -52,15 +52,24 @@ nav li a:hover:not(.active) {
 <body>
     <nav>
         <ul>
-            <li><a class="active" href="#">홈</a></li>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="#">소개</a></li>
-            <li><a href="#">자유게시판</a></li>
+            <li><a class="active" href="#">HOME</a></li>
+            <li><a href="#">RAMEN TYPE</a></li>
+            <li><a href="#">MAP</a></li>
+            <li><a href="#">ABOUT</a></li>
         </ul>
     </nav>
 
-<div style="margin-left:25%;padding:1px 16px;height:1000px;">
-    <img src="static/img/main_ramen.png" alt="메인 라멘">
-</div>
+    <div style="padding-top: 9vh; display: flex;">
+        <div style="float: right; width: 50%; align-items: center; margin: 0 auto; align-items: center; text-align: center; border: 1px solid black;">
+            <h1>글자입니다</h1>
+            <h1>글자입니다</h1>
+            <h1>글자입니다</h1>
+            <h1>글자입니다</h1>
+            <h1>글자입니다</h1>
+        </div>
+        <div style="float: left; flex-direction: column; flex-grow: 1;">
+            <img src="static/img/main_ramen.png" alt="메인 라멘" ;>
+        </div>
+    </div>
 </body>
 </html>
