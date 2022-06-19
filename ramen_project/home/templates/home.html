@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <style>
 
 @font-face {
@@ -9,7 +13,7 @@
 }    
 
 @font-face {
-    font-family: menu_bold;
+    font-family: aggro;
     src: url("static/font/Aggro.ttf");
 }
 
@@ -42,7 +46,7 @@ nav ul li{
     font-size: 20px;
     text-transform: uppercase;
     display: inline-block;
-    font-family: menu_bold;
+    font-family: aggro;
 }
 
 nav ul{
@@ -83,12 +87,25 @@ nav li a:hover:not(.active) {
             </div>
         </div>
 
-        
         <div style="float: right; flex-direction: column; width: 50%; box-sizing: border-box;">
             <div style="text-align: center;">
                 <img src="static/img/main_ramen.png" alt="메인 라멘" ;>
             </div>
         </div>
     </div>
+
+
+    <div style="overflow: hidden; margin: 25px; height: 91vh; border-radius: 40px;">
+        <div id = 'map'>
+            {{map|safe}}
+        </div>
+    </div>
+
 </body>
 </html>
+
+
+<!--자바스크립트-->
+<script>
+
+</script>
