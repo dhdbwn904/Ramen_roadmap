@@ -70,7 +70,7 @@ nav li a:hover:not(.active) {
         <ul>
             <li><a class="active" href="#">HOME</a></li>
             <li><a href="#">RAMEN TYPE</a></li>
-            <li><a href="#">MAP</a></li>
+            <li><a href="#map_page">MAP</a></li>
             <li><a href="#">ABOUT</a></li>
         </ul>
     </nav>
@@ -93,9 +93,8 @@ nav li a:hover:not(.active) {
             </div>
         </div>
     </div>
-
-
-    <div style="overflow: hidden; margin: 25px; height: 91vh; border-radius: 40px;">
+    
+    <div id = 'map_page' style="overflow: hidden; margin: 25px; height: 91vh; border-radius: 40px; border: 5px solid wheat;">
         <div id = 'map'>
             {{map|safe}}
         </div>
