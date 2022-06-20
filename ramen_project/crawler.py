@@ -1,7 +1,8 @@
 from audioop import add
 from ctypes import addressof
-import os
+import os, json
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ramen_project.settings")
+from django.core.exceptions import ImproperlyConfigured
 
 import django
 django.setup()
@@ -11,16 +12,32 @@ import pandas as pd
 import numpy as np
 import re
 import folium
+import googlemaps
 from urllib.request import urlopen, Request  
 from bs4 import BeautifulSoup 
 from home.models import Restaurent
-import datetime
+from datetime import datetime
 import time
+from pathlib import Path
+
 
 import warnings
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 warnings.simplefilter(action='ignore')
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+secret_file = os.path.join(BASE_DIR / 'ramen_project', 'secrets.json')
+
+with open(secret_file) as f:
+    secrets = json.loads(f.read())
+
+def get_variable(key):
+    try:
+        return secrets[key]
+    except:
+        print("Exception occured")
+        
 
 def crawl_mango():
     url = 'https://www.mangoplate.com/top_lists/2983_ramen2022'
@@ -46,15 +63,15 @@ def crawl_mango():
         tag2.click()
         time.sleep(2)
 
-
-    
     req = driver.page_source
     mang = BeautifulSoup(req, 'html.parser')
     mang.prettify()
 
     name = []
-    point = []
+    point = []  
     address = []
+    lat = []
+    lng = []
 
     list_soup = mang.find_all('div', 'info') 
 
@@ -73,6 +90,16 @@ def crawl_mango():
         "Point":point,  
         "Address":address
     }
+
+    gmaps_key = get_variable("API_KEY")
+    gmaps = googlemaps.Client(gmaps_key)
+
+    for i in range(len(data['Address'])):
+        lat.append(gmaps.geocode(data['Address'][i])[0].get('geometry')['location']['lat'])
+        lng.append(gmaps.geocode(data['Address'][i])[0].get('geometry')['location']['lng'])
+
+    print('lat', lat)
+    print('lng', lng)
 
     return data
 
