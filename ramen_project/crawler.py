@@ -72,6 +72,8 @@ def crawl_mango():
     address = []
     lat = []
     lng = []
+    img = []
+    review = []
 
     list_soup = mang.find_all('div', 'info') 
 
@@ -91,6 +93,19 @@ def crawl_mango():
         "Address":address
     }
 
+    list_soup = mang.find_all('div', 'with-review')
+
+    for item in list_soup:
+        try:
+            img.append(item.find('img', 'center-croping lazy')['data-original'])
+        except:
+            continue
+
+    print(img)
+
+    img = img[:50]
+    data['img'] = img
+
     gmaps_key = get_variable("API_KEY")
     gmaps = googlemaps.Client(gmaps_key)
 
@@ -98,8 +113,8 @@ def crawl_mango():
         lat.append(gmaps.geocode(data['Address'][i])[0].get('geometry')['location']['lat'])
         lng.append(gmaps.geocode(data['Address'][i])[0].get('geometry')['location']['lng'])
 
-    print('lat', lat)
-    print('lng', lng)
+    data['lat'] = lat
+    data['lng'] = lng
 
     return data
 
@@ -108,7 +123,7 @@ if __name__=='__main__':
     mango_data = crawl_mango()
     for i in range(len(mango_data['Name'])):
         try:
-            Restaurent(name=mango_data['Name'][i], point=mango_data['Point'][i], address=mango_data['Address'][i]).save()
+            Restaurent(name=mango_data['Name'][i], point=mango_data['Point'][i], address=mango_data['Address'][i], lat=mango_data['lat'][i], lng=mango_data['lng'][i], img=mango_data['img'][i]).save()
         except:
             print("이미 존재하는 DB입니다.")
             continue
