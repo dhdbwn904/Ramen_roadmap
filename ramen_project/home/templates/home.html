@@ -17,6 +17,11 @@
     src: url("static/font/Aggro.ttf");
 }
 
+@font-face {
+    font-family: pretend;
+    src: url("static/font/Pretendard.ttf");
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -41,7 +46,7 @@ nav{
 
 nav li a{
     display: block;
-    color: #000;
+    color: rgb(255, 255, 255);
     padding: 0 15px;
     text-decoration: none;
 }
@@ -58,13 +63,38 @@ nav ul{
     margin: 0 auto;
 }
 
-nav li a.active {
-    color: white;
+nav li a:hover {
+    background-color: transparent;
+    color: rgb(255, 205, 112); 
 }
 
-nav li a:hover:not(.active) {
-    background-color: transparent;
-    color: wheat; 
+nav li a:active{
+    color: rgba(255, 205, 112, 0.918);
+}
+
+.box{
+    padding : 8px;
+    border-radius: 25px;
+    margin: 40px;
+    background-color:white;
+    box-shadow: 2px 2px 10px 3px black;
+    overflow: auto;
+    text-align: center;
+    font-family: yeongdo;
+}
+
+.box img{
+    width: 580px;
+    height: 580px;
+    border: 5px solid wheat;
+}
+
+.box h2{
+    word-wrap: break-word;
+    margin: 35px; font-size: 1.5vw;
+    font-weight: lighter;
+    font-family: pretend;
+    line-height: 140%;
 }
 
 </style>
@@ -72,26 +102,22 @@ nav li a:hover:not(.active) {
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
     <nav>
         <ul>
-            <li><a class="active" href="#">HOME</a></li>
-            <li><a href="#">RAMEN TYPE</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#ramen_type">RAMEN TYPE</a></li>
             <li><a href="#map_page">MAP</a></li>
             <li><a href="#">ABOUT</a></li>
         </ul>
     </nav>
     
-    
-    
-    
-    
-    
-    <div style="padding-top: 9vh; display: flex; height: 91vh; ">
+
+    <div id="home" style="padding-top: 9vh; display: flex; height: 100vh; overflow: auto;">
         <div style="float: left; width: 50%; box-sizing: border-box;">
             <div style="display: table; width: 100%; height: 100%;">
                 <div style="display: table-cell; vertical-align: middle; text-align: center;">
                     <div style="display: block; color: white;">
-                        <h1 style="font-size: 80px; text-shadow: 2px 2px 8px black;">SEOUL<br>MUST-GO<br>RAMEN RESTAURENT</h1>
-                        <h2 style="font-size: 40px; color: rgb(255, 238, 0); font-family: yeongdo; text-shadow: 2px 2px 4px black">서울 라멘 맛집 지도</h2>
-                    </div>>
+                        <h1 style="font-size: 80px; text-shadow: 2px 2px 8px black;">KOREA<br>MUST-GO<br>RAMEN RESTAURENT</h1>
+                        <h2 style="font-size: 40px; color: rgb(247, 235, 130); font-family: yeongdo; text-shadow: 2px 2px 4px black">한국 라멘 맛집 BEST 50</h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,18 +128,60 @@ nav li a:hover:not(.active) {
             </div>
         </div>
     </div>
+
+    <div id="ramen_type" style="padding-top: 9vh;">
+
+        <div id="row" style="display: flex; margin: 0 200px;">
+            <div class="box" style="float: left; width: 50%;">
+                <h1 style="font-size: 3.5vw;">쇼유라멘</h1>
+                <img src="static/img/쇼유라멘.jpg" style="border-radius: 15px;">
+                <h2>일본에서 가장 대중적인 라멘입니다.<br>일본식 간장인 쇼유가 베이스가 되고 그와<br>어패류나 돼지, 닭을 이용한 육수를 합쳐<br>국물을 만들어 냅니다. </h2>
+            </div>
+            <div class="box" style="float: left; width: 50%;">
+                <h1 style="font-size: 3.5vw;">시오라멘</h1>
+                <img src="static/img/시오라멘.jpg" style="border-radius: 15px;">
+                <h2>소금(시오)으로 맛을 내는 라멘입니다.<br>이름만 들으면 제일 짤 것 같지만<br>의외로 담백한 맛을 냅니다.</h2>
+            </div>
+        </div>
+
+        
+        <div id="row" style="display: flex; margin: 0 200px;">
+            <div class="box" style="float: left; width: 50%;">
+                <h1 style="font-size: 3.5vw;">돈코츠라멘</h1>
+                <img src="static/img/돈코츠라멘.jpg" style="border-radius: 15px;">
+                <h2>돼지의 뼈를 장시간 삶은 육수를 베이스로<br>맛을 내는 라멘입니다.<br>일본여행 중 필수 코스가 되었던 이치란 라멘의<br>라멘이 이 돈코츠라멘에 해당합니다.</h2>
+            </div>
+            <div class="box" style="float: left; width: 50%;">
+                <h1 style="font-size: 3.5vw;">토리파이탄</h1>
+                <img src="static/img/토리파이탄.jpg" style="border-radius: 15px;">
+                <h2>닭을 장시간 끓여 만든 탁한 육수를 사용하는<br>라멘입니다. 우리나라의 백숙과도 흡사합니다.<br>베이스가 닭이기 때문에 돼지 잡내가 나지 않는다는 장점이 있습니다.</h2>
+            </div>
+        </div>
+
+        
+        <div id="row" style="display: flex; margin: 0 200px;">
+            <div class="box" style="float: left; width: 50%;">
+                <h1 style="font-size: 3.5vw;">교카이라멘</h1>
+                <img src="static/img/교카이라멘.jpg" style="border-radius: 15px;">
+                <h2>어패류를 사용해 국물 맛을 내는 라멘입니다.<br>해산물을 사용하여 한국 사람 입맛에도 적합합니다.<br>간장, 가쓰오부시 등으로 추가적인 맛을 내는 곳도<br>있습니다.</h2>
+            </div>
+            <div class="box" style="float: left; width: 50%;">
+                <h1 style="font-size: 3.5vw;">츠케멘</h1>
+                <img src="static/img/츠케멘.jpg" style="border-radius: 15px;">
+                <h2>일본어 츠케는 담그다라는 뜻으로 츠케멘은 걸쭉한 국물에 면을 찍어먹는 라멘입니다.<br>한국에서는 라멘에 가려져 잘 알려져있지 않지만<br>일본 현지에서는 인기가 굉장히 많습니다.</h2>
+            </div>
+        </div>
+
+
+    </div>
     
-    <div id = 'map_page' style="overflow: hidden; margin: 25px; height: 91vh; border-radius: 40px; border: 5px solid wheat;">
-        <div id = 'map'>
-            {{map|safe}}
+    <div id="map_page" style="padding-top: 9vh; height: 100vh; margin: 50px;">
+        <div id = 'map_page' style="overflow: hidden; border-radius: 40px; border: 5px solid wheat; height: 100%; vertical-align: middle;">
+            <div id = 'map'>
+                {{map|safe}}
+            </div>
         </div>
     </div>
-
 </body>
 </html>
 
-
-<!--자바스크립트-->
-<script>
-
-</script>
