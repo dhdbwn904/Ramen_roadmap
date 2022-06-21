@@ -97,6 +97,11 @@ nav li a:active{
     line-height: 140%;
 }
 
+img .icon{
+    width: 2vw;
+    height: 2vw;
+}
+
 </style>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
@@ -105,11 +110,10 @@ nav li a:active{
             <li><a href="#home">HOME</a></li>
             <li><a href="#ramen_type">RAMEN TYPE</a></li>
             <li><a href="#map_page">MAP</a></li>
-            <li><a href="#">ABOUT</a></li>
+            <li><a href="#about">ABOUT</a></li>
         </ul>
     </nav>
     
-
     <div id="home" style="padding-top: 9vh; display: flex; height: 100vh; overflow: auto;">
         <div style="float: left; width: 50%; box-sizing: border-box;">
             <div style="display: table; width: 100%; height: 100%;">
@@ -171,14 +175,20 @@ nav li a:active{
                 <h2>일본어 츠케는 담그다라는 뜻으로 츠케멘은 걸쭉한 국물에 면을 찍어먹는 라멘입니다.<br>한국에서는 라멘에 가려져 잘 알려져있지 않지만<br>일본 현지에서는 인기가 굉장히 많습니다.</h2>
             </div>
         </div>
-
-
     </div>
     
     <div id="map_page" style="padding-top: 9vh; height: 100vh; margin: 50px;">
         <div id = 'map_page' style="overflow: hidden; border-radius: 40px; border: 5px solid wheat; height: 100%; vertical-align: middle;">
             <div id = 'map'>
                 {{map|safe}}
+            </div>
+        </div>
+    </div>
+
+    <div id="about" style="padding-top: 9vh; padding-bottom: 3vh;">
+        <div id="row" style="display: flex; text-align: center;">
+            <div style="float: right; width: 100%;">
+                <a href="https://github.com/dhdbwn904/"><img src="static\img\github.svg" style="width: 3vw; height:3vw"></a>
             </div>
         </div>
     </div>
